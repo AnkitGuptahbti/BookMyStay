@@ -1,10 +1,14 @@
 package com.example.project.bookMyStay.service;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.project.bookMyStay.dto.HotelDto;
+import com.example.project.bookMyStay.dto.HotelInfoDto;
+import com.example.project.bookMyStay.dto.RoomDto;
 import com.example.project.bookMyStay.entity.Hotel;
 import com.example.project.bookMyStay.entity.Room;
 import com.example.project.bookMyStay.exceptions.ResourceNotFoundException;
@@ -77,4 +81,18 @@ public class HotelServiceImpl implements HotelService {
         }
         
     }    
+
+    @Override
+    public HotelInfoDto getHotelInfoById(Long hotelId) {
+        Hotel hotel = hotelRepository
+                .findById(hotelId)
+                .orElseThrow(() -> new ResourceNotFoundException("Hotel not found with ID: "+hotelId));
+
+        List<RoomDto> rooms = hotel.getRooms()
+                .stream()
+                .map((element) -> modelMapper.map(element, RoomDto.class))
+                .toList();
+
+        return new HotelInfoDto(modelMapper.map(hotel, HotelDto.class), rooms);
+    }
 }
