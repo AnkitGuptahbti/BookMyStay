@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.project.bookMyStay.dto.HotelDto;
 import com.example.project.bookMyStay.dto.HotelInfoDto;
 import com.example.project.bookMyStay.dto.HotelPriceDto;
 import com.example.project.bookMyStay.dto.HotelSearchRequest;

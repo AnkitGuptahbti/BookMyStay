@@ -3,16 +3,13 @@ package com.example.project.bookMyStay.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.example.project.bookMyStay.dto.HotelDto;
 import com.example.project.bookMyStay.dto.HotelPriceDto;
 import com.example.project.bookMyStay.dto.HotelSearchRequest;
-import com.example.project.bookMyStay.entity.Hotel;
 import com.example.project.bookMyStay.entity.Inventory;
 import com.example.project.bookMyStay.entity.Room;
 import com.example.project.bookMyStay.repository.HotelMinPriceRepository;
