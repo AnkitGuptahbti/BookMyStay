@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.project.bookMyStay.dto.HotelDto;
 import com.example.project.bookMyStay.dto.HotelInfoDto;
+import com.example.project.bookMyStay.dto.HotelPriceDto;
 import com.example.project.bookMyStay.dto.HotelSearchRequest;
 import com.example.project.bookMyStay.service.HotelService;
 import com.example.project.bookMyStay.service.InventoryService;
@@ -20,9 +21,9 @@ public class HotelBrowseController {
     private final HotelService hotelService;
 
     @GetMapping("/search")
-    public ResponseEntity<Page<HotelDto>> searchHotels(@RequestBody HotelSearchRequest hotelSearchRequest) {
+    public ResponseEntity<Page<HotelPriceDto>> searchHotels(@RequestBody HotelSearchRequest hotelSearchRequest) {
 
-        Page<HotelDto> page = inventoryService.searchHotels(hotelSearchRequest);
+        var page = inventoryService.searchHotels(hotelSearchRequest);
         return ResponseEntity.ok(page);
     }
 
